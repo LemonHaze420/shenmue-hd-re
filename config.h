@@ -8,10 +8,14 @@
 #define COMPILE_MAIN	1
 
 // @brief Shenmue 1
-#define SHENMUE_1	"Coconut"
+#define SHENMUE_1		1
+#define SHENMUE_1_NAME	"Coconut"
 
 // @brief Shenmue 2
-#define SHENMUE_2	"Mango"
+#define SHENMUE_2		2
+#define SHENMUE_2_NAME	"Mango"
+
+#define BUILD			SHENMUE_2
 
 // @brief Which game to build, SHENMUE_1 or SHENMUE_2
 #ifndef BUILD

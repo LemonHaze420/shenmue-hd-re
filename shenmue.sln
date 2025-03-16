@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35818.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shenmue", "shenmue.vcxproj", "{9110797E-47D7-4138-8A9E-F2A21FDF8C39}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+		Static_Debug|x64 = Static_Debug|x64
+		Static_Release|x64 = Static_Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9110797E-47D7-4138-8A9E-F2A21FDF8C39}.Debug|x64.ActiveCfg = Debug|x64
+		{9110797E-47D7-4138-8A9E-F2A21FDF8C39}.Debug|x64.Build.0 = Debug|x64
+		{9110797E-47D7-4138-8A9E-F2A21FDF8C39}.Release|x64.ActiveCfg = Release|x64
+		{9110797E-47D7-4138-8A9E-F2A21FDF8C39}.Release|x64.Build.0 = Release|x64
+		{9110797E-47D7-4138-8A9E-F2A21FDF8C39}.Static_Debug|x64.ActiveCfg = Static_Debug|x64
+		{9110797E-47D7-4138-8A9E-F2A21FDF8C39}.Static_Debug|x64.Build.0 = Static_Debug|x64
+		{9110797E-47D7-4138-8A9E-F2A21FDF8C39}.Static_Release|x64.ActiveCfg = Static_Release|x64
+		{9110797E-47D7-4138-8A9E-F2A21FDF8C39}.Static_Release|x64.Build.0 = Static_Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E4D2C385-9BD2-4527-A1C0-A23BDEAD4EAE}
+	EndGlobalSection
+EndGlobal
