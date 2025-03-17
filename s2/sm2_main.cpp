@@ -1,12 +1,8 @@
 // LemonHaze - 2025
 #include "pch.h"
-#include "../utilities.h"
-#include "../debug.h"
-
+#include "../shenmue.h"
 
 #if BUILD == SHENMUE_2
-#include "../hooks.h"
-
 #   if STATIC_BUILD == 1 && COMPILE_MAIN == 1
         int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
         {
@@ -16,11 +12,11 @@
                 return 0;
         }
 #   elif STATIC_BUILD == 0
+#	include "../hooks.h"
         void Attach()
         {
                 CreateDebugConsole();
                 InstallHooks();
-
                 DebugStop();
         }
         void Detach()

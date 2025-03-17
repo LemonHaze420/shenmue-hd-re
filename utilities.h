@@ -1,5 +1,7 @@
 #pragma once
 
+#include "shenmue.h"
+
 #include <Windows.h>
 #include <cstdio>
 #include <ctime>
@@ -16,10 +18,6 @@ enum GameType {
 
 extern GameType GGameType;
 extern uintptr_t GetBaseAddress();
-
-constexpr bool LOG_TO_FILE = true;
-constexpr const char* LOG_FILE_NAME = "log.txt";
-
 
 extern void Log(const char* format, ...);
 extern void DebugStop();

@@ -1,5 +1,4 @@
 #include "pch.h"
-
 #include "utilities.h"
 #include <cstdlib>
 
@@ -8,6 +7,15 @@ GameType GGameType = Invalid;
 
 void Log(const char* format, ...) 
 {
+#   ifndef _DEBUG
+       if constexpr (LOG_IN_RELEASE)
+            return;
+#   endif
+#   if NO_LOGGING == 1
+        return;
+#   endif
+
+
     std::time_t t = std::time(nullptr);
     std::tm tm = *std::localtime(&t);
 
@@ -80,6 +88,10 @@ GameType DetectVersion(GameType OfType)
 
 void DebugStop()
 {
-    system("PAUSE");
-    exit(0);
+#   if HOOK_CHECK == 1
+        system("PAUSE");
+#   endif
+#   if HOOK_CHECK_EXIT == 1
+        exit(0);
+#   endif
 }

@@ -108,6 +108,9 @@
   <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <VcpkgUseStatic>true</VcpkgUseStatic>
   </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <VcpkgUseStatic>true</VcpkgUseStatic>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -123,8 +126,7 @@
       <EnableUAC>false</EnableUAC>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>XCOPY /Y /-I /Q $(TargetPath) "$(SHEN_ROOT)\sm1" &amp;&amp; XCOPY /Y /-I /Q $(TargetPath) "$(SHEN_ROOT)\sm2"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Static_Debug|x64'">
@@ -161,8 +163,7 @@
       <EnableUAC>false</EnableUAC>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>XCOPY /Y /-I /Q $(TargetPath) "$(SHEN_ROOT)\sm1" &amp;&amp; XCOPY /Y /-I /Q $(TargetPath) "$(SHEN_ROOT)\sm2"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Static_Release|x64'">
@@ -193,6 +194,7 @@
     <ClInclude Include="gen_hooks_sm2.h" />
     <ClInclude Include="hooks.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="shenmue.h" />
     <ClInclude Include="utilities.h" />
   </ItemGroup>
   <ItemGroup>

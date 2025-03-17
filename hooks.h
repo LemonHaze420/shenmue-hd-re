@@ -1,6 +1,6 @@
 // LemonHaze - 2025
 #pragma once
-#include "config.h"
+#include "shenmue.h"
 
 #if STATIC_BUILD == 0
 #   if BUILD == SHENMUE_1
@@ -8,8 +8,6 @@
 #   elif BUILD == SHENMUE_2
 #       include "gen_hooks_sm2.h"
 #   endif
-
-#include "utilities.h"
 
 void InstallHooks() {
     if (MH_Initialize() != MH_OK)
