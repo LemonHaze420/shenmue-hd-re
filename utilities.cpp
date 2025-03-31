@@ -2,11 +2,18 @@
 #include "utilities.h"
 #include <cstdlib>
 
+bool bDisableFileLog = false;
+
 uintptr_t base_address;
 GameType GGameType = Invalid;
 
-void Log(const char* format, ...) 
+
+
+
+
+void DebugLog(const char* format, ...) 
 {
+
 #   ifndef _DEBUG
        if constexpr (LOG_IN_RELEASE)
             return;
@@ -28,6 +35,9 @@ void Log(const char* format, ...)
     va_end(args);
 
     if constexpr (LOG_TO_FILE) {
+        if (bDisableFileLog)
+            return;
+
         FILE* file = std::fopen(LOG_FILE_NAME, "a");
         if (file) {
             std::fprintf(file, "%s", timeBuf);

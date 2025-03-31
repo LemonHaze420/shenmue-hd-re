@@ -2,7 +2,7 @@
 #pragma once
 
 // @brief Set to 1 to halt execution after all hooks have been setup
-#define HOOK_CHECK		1
+#define HOOK_CHECK		0
 
 // @brief Set to 1 to exit after halt, if HOOK_CHECK is enabled
 #define HOOK_CHECK_EXIT	0
@@ -28,7 +28,7 @@
 #define SHENMUE_2_NAME	"Mango"
 
 // @brief Which game to build, SHENMUE_1 or SHENMUE_2
-#define BUILD			SHENMUE_2
+#define BUILD			SHENMUE_1
 
 // @brief Should we log to file at all?
 constexpr bool LOG_TO_FILE = true;

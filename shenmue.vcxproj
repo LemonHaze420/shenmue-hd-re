@@ -130,9 +130,7 @@
 XCOPY /Y /-I /F $(TargetPath) "$(SHEN_ROOT)\sm2"</Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>$(ProjectDir)scripts\sync_defs.bat
-$(ProjectDir)scripts\patch.py sm1 $(ProjectDir)s1
-$(ProjectDir)scripts\patch.py sm2 $(ProjectDir)s2</Command>
+      <Command>ECHO Syncing defs.. &amp;&amp; $(ProjectDir)scripts\sync_defs.bat &amp;&amp; ECHO Fixing S1 hooks &amp;&amp; python "$(ProjectDir)scripts\patch.py" sm1 "$(ProjectDir)s1" &amp;&amp; ECHO Fixing S2 hooks &amp;&amp; python "$(ProjectDir)scripts\patch.py" sm2 "$(ProjectDir)s2"</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Static_Debug|x64'">
@@ -171,6 +169,9 @@ $(ProjectDir)scripts\patch.py sm2 $(ProjectDir)s2</Command>
     <PostBuildEvent>
       <Command>XCOPY /Y /-I /Q $(TargetPath) "$(SHEN_ROOT)\sm1" &amp;&amp; XCOPY /Y /-I /Q $(TargetPath) "$(SHEN_ROOT)\sm2"</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>ECHO Syncing defs.. &amp;&amp; $(ProjectDir)scripts\sync_defs.bat &amp;&amp; ECHO Fixing S1 hooks &amp;&amp; python "$(ProjectDir)scripts\patch.py" sm1 "$(ProjectDir)s1" &amp;&amp; ECHO Fixing S2 hooks &amp;&amp; python "$(ProjectDir)scripts\patch.py" sm2 "$(ProjectDir)s2"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Static_Release|x64'">
     <ClCompile>
