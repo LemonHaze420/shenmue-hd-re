@@ -1,4 +1,4 @@
-// LemonHaze - 2025
+﻿// LemonHaze - 2025
 #pragma once
 #include "shenmue.h"
 
@@ -15,12 +15,12 @@ void InstallHooks() {
 
     for (size_t i = 0; i < HOOK_COUNT; i++) {
         void* target_address = (void*)(GetBaseAddress() + hooks[i].address);
-        if (MH_CreateHook(target_address, hooks[i].hook, &hooks[i].original) != MH_OK) {
+        if (MH_CreateHook(target_address, hooks[i].hook, hooks[i].original) != MH_OK) {
             Log("Failed to create hook for %s\n", hooks[i].name);
         }
         else {
 #           if _DEBUG
-                Log("Installed hook for %s\n", hooks[i].name);
+                //Log("Installed hook for %s\n", hooks[i].name);
 #           endif
         }
     }

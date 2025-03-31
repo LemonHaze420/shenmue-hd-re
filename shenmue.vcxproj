@@ -126,8 +126,14 @@
       <EnableUAC>false</EnableUAC>
     </Link>
     <PostBuildEvent>
-      <Command>XCOPY /Y /-I /Q $(TargetPath) "$(SHEN_ROOT)\sm1" &amp;&amp; XCOPY /Y /-I /Q $(TargetPath) "$(SHEN_ROOT)\sm2"</Command>
+      <Command>XCOPY /Y /-I /F $(TargetPath) "$(SHEN_ROOT)\sm1"
+XCOPY /Y /-I /F $(TargetPath) "$(SHEN_ROOT)\sm2"</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>$(ProjectDir)scripts\sync_defs.bat
+$(ProjectDir)scripts\patch.py sm1 $(ProjectDir)s1
+$(ProjectDir)scripts\patch.py sm2 $(ProjectDir)s2</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Static_Debug|x64'">
     <ClCompile>

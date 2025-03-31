@@ -12,7 +12,7 @@ def main():
         with open(output_path, "w") as f:
             for ea in idautils.Functions():
                 name = idc.get_func_name(ea)
-                f.write(f"{ea - 0x140000000:08X} {name}\n")
+                f.write(f"{ea - 0x140000000:X} {name}\n")
         ida_pro.qexit(0)
 
     except Exception as e:
