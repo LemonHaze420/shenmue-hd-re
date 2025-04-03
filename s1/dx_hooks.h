@@ -3,7 +3,7 @@
 { "DecodeStencilOp", 0x0, DecodeStencilOp, nullptr },
 { "CreateSamplerState", 0x0, CreateSamplerState, nullptr },
 { "DX11_D3D11CreateDeviceAndSwapChain", 0x0, DX11_D3D11CreateDeviceAndSwapChain, (void**)&dx_initorig },
-{ "CreateUserDefinedAnnotations", 0x0, CreateUserDefinedAnnotations, (void**)&create_shader_query_orig },
+{ "CreateUserDefinedAnnotations", 0x0, CreateUserDefinedAnnotations, (void**)&create_annotations_orig },
 { "DXCreateBuffer", 0x0, DXCreateBuffer, (void**)&dx_create_buffer_orig },
 { "CreateDXBuffers", 0x0, CreateDXBuffers, (void**)&create_dx_buffers_orig },
 { "CreateNewSRVTexture", 0x0, CreateNewSRVTexture, nullptr },

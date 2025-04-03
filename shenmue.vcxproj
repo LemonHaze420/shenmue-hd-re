@@ -119,11 +119,18 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Strict</FloatingPointModel>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <SupportJustMyCode>false</SupportJustMyCode>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>dxguid.lib;d3dcompiler.lib;d3d11.lib;dxgi.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>XCOPY /Y /-I /F $(TargetPath) "$(SHEN_ROOT)\sm1"
@@ -158,6 +165,9 @@ XCOPY /Y /-I /F $(TargetPath) "$(SHEN_ROOT)\sm2"</Command>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Strict</FloatingPointModel>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -165,6 +175,7 @@ XCOPY /Y /-I /F $(TargetPath) "$(SHEN_ROOT)\sm2"</Command>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>dxguid.lib;d3dcompiler.lib;d3d11.lib;dxgi.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>XCOPY /Y /-I /Q $(TargetPath) "$(SHEN_ROOT)\sm1" &amp;&amp; XCOPY /Y /-I /Q $(TargetPath) "$(SHEN_ROOT)\sm2"</Command>
@@ -195,16 +206,19 @@ XCOPY /Y /-I /F $(TargetPath) "$(SHEN_ROOT)\sm2"</Command>
   <ItemGroup>
     <ClInclude Include="config.h" />
     <ClInclude Include="debug.h" />
+    <ClInclude Include="dx.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="gen_hooks.h" />
     <ClInclude Include="gen_hooks_sm1.h" />
     <ClInclude Include="gen_hooks_sm2.h" />
+    <ClInclude Include="HLib.h" />
     <ClInclude Include="hooks.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="shenmue.h" />
     <ClInclude Include="utilities.h" />
+    <ClInclude Include="Vector3.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="dx.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Static_Debug|x64'">Create</PrecompiledHeader>
@@ -214,8 +228,12 @@ XCOPY /Y /-I /F $(TargetPath) "$(SHEN_ROOT)\sm2"</Command>
     <ClCompile Include="s1\sm1_main.cpp" />
     <ClCompile Include="s2\sm2_main.cpp" />
     <ClCompile Include="utilities.cpp" />
+    <ClCompile Include="Vector3.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <Target Name="CleanStep" AfterTargets="Clean">
+    <Exec Command="$(ProjectDir)\scripts\prep.bat" />
+  </Target>
 </Project>

@@ -1,10 +1,11 @@
 #pragma once
-#include "config.h"
-#include "utilities.h"
+#include "generics.h"
 #include "debug.h"
+#include "HLib.h"
+#include "dx.h"
 
+#define FUNC __declspec(noinline)
 
-#include "vector.h"
 
 #if BUILD == SHENMUE_1
 	// ...

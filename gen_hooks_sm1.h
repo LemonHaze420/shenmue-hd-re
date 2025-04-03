@@ -1,7 +1,9 @@
 #pragma once
 #include <MinHook.h>
-
+#include "shenmue.h"
 #include "Vector3.h"
+#include "HLib.h"
+#include "dx.h"
 
 typedef struct {
     const char* name;
@@ -13,7 +15,7 @@ typedef struct {
 //extern void Main(int argc, char* argv);
 
 static Hook hooks[] = {
-#   include "tmp_hooks.h"
+#   include "s1/main_hooks.h"
 #   include "s1/dx_hooks.h"
 #   include "Vector3_hooks.h"
 };

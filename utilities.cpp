@@ -3,17 +3,33 @@
 #include <cstdlib>
 
 bool bDisableFileLog = false;
+bool bForcedWindowed = false;
 
 uintptr_t base_address;
 GameType GGameType = Invalid;
 
+uint64_t Query_perf_frequency() {
+    LARGE_INTEGER freq;
+    QueryPerformanceFrequency(&freq);
+    return freq.QuadPart;
+}
 
+uint64_t Query_perf_counter() {
+    LARGE_INTEGER counter;
+    QueryPerformanceCounter(&counter);
+    return counter.QuadPart;
+}
 
-
+uint64_t GetTimeNs()
+{
+    LARGE_INTEGER freq, counter;
+    QueryPerformanceFrequency(&freq);
+    QueryPerformanceCounter(&counter);
+    return (counter.QuadPart * 1'000'000'000ULL) / freq.QuadPart;
+}
 
 void DebugLog(const char* format, ...) 
 {
-
 #   ifndef _DEBUG
        if constexpr (LOG_IN_RELEASE)
             return;
